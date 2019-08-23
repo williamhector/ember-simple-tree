@@ -82,7 +82,10 @@ export default Component.extend({
     },
 
     toggleExpand() {
-      this.toggleProperty('model.isExpanded');
+      let isExpanded = this.toggleProperty('model.isExpanded');
+      if(isExpanded && this.onExpand){
+        this.onExpand(this.model);
+      }
     }
   }
 });
